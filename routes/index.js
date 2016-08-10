@@ -1,5 +1,5 @@
-let express = require('express');
-let router = express.Router();
+const express = require('express');
+const router = express.Router();
 
 const got = require("got");
 const forecastIo = require('../ForecastIO.js');
