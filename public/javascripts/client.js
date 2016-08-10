@@ -66,7 +66,7 @@ const WeatherForm = React.createClass({
   },
   generate: function(e) {
     e.preventDefault();
-    let weatherForm = {
+    var weatherForm = {
       location: encodeURIComponent(this.refs.location.value.trim()),
       sD: this.refs.sDate.value.trim(),
       eD: this.refs.eDate.value.trim()
@@ -90,12 +90,12 @@ const WeatherAverage = React.createClass({
   }
 });
 
-let isValidDate = (date) => {
+var isValidDate = (date) => {
   console.log(date);
   return moment(date, "MM/DD/YYYY", true).isValid();
 }
 
-let isCorrectOrder = (start, end) => {
+var isCorrectOrder = (start, end) => {
   return moment(start).isBefore(moment(end));
 }
 
