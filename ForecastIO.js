@@ -1,6 +1,6 @@
-const ForecastIo = require('forecastio');
-const KEYS = require('./keys.js');
+var ForecastIo = require('forecastio');
+var KEYS = require('./keys.js');
 
-let forecastIo = new ForecastIo(KEYS.FKEY);
+var forecastIo = new ForecastIo(KEYS.FKEY);
 
 module.exports = forecastIo;
