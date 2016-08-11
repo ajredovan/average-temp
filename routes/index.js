@@ -41,7 +41,9 @@ router.post('/getAverageTemp', (req, res, next) => {
         var url = 'https://api.forecast.io/forecast/'+KEYS.FKEY+'/'+center[1]+','+center[0]+','+day.toISOString().slice(0,19);
         got(url.toString()).then((response) => {
           var resp = JSON.parse(response.body);
-          temps.push(resp.currently.temperature);
+          if (typeof resp.currently.temperature !== 'undefined') {
+            temps.push(resp.currently.temperature);
+          }
           i++;
           if (i === days.length) {
             resolve(temps);
@@ -71,6 +73,7 @@ router.post('/getAverageTemp', (req, res, next) => {
     for (var i = 1; i <= amount; i++) {
       var newDate = new Date(day);
       newDate.setDate(tempDate.getDate() + i);
+      console.log(newDate);
       newDays.push(newDate);
     }
     return newDays;
